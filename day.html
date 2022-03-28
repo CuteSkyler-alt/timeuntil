@@ -20,10 +20,30 @@ function getDayName(dateStr, locale){
 };
 var day = getDayName(dateStr, "nl-NL");
 var dateStr = 0;
-setInterval(()=>{
+
+function startUp(){
     dateStr = new Date();
     document.getElementById('day').innerText = `Het is ${getDayName(dateStr, "nl-NL")}`;
-},1000);
+    switch(`${getDayName(dateStr, "nl-NL")}`){
+      case 'maandag': document.body.style.backgroundColor = 'green';
+      break;
+      case 'dinsdag': document.body.style.backgroundColor = 'red';
+      break;
+      case 'woensdag': document.body.style.backgroundColor = 'orange';
+      break;
+      case 'donderdag': document.body.style.backgroundColor = 'yellow';
+      break;
+      case 'vrijdag': document.body.style.backgroundColor = 'blue';
+      break;
+      case 'zaterdag': document.body.style.backgroundColor = 'purple';
+      break;
+      case 'zondag': document.body.style.backgroundColor = 'pink';
+      break;
+    };
+};
+
+startUp();
+
 </script>
 </body>
 </html>
