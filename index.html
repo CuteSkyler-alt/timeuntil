@@ -92,7 +92,7 @@
 </div>
 <script>setInterval( ()=>{var vakantietijd = new Date(document.getElementById('inputfield').value).getTime();
     var nu = new Date().getTime();
-    document.getElementById('datum').innerText = `Today's date: ${nu}`;
+    var newt = new Date();
     var  days = Math.floor((vakantietijd - nu)/1000/60/60/24);
     var  hours = Math.floor((vakantietijd - nu)/1000/60/60)%24;
     var  minutes = Math.floor((vakantietijd - nu)/1000/60)%60;
@@ -126,6 +126,7 @@
     if(document.getElementById('Seconds').innerHTML !== "0"){
     document.getElementById('Seconds').style.color = 'black';
     }
+    document.getElementById('datum').innerText = `Today's date: ${nu.getDate()+"-"+nu.getMonth()+"-"+nu.getFullYear()}`;
 }, 1000);
 </script><style>@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
 </style>
