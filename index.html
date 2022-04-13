@@ -45,7 +45,7 @@
     font-weight: 800;
     font-size: .5em;
 ">Minutes</p>
-    <p id="Minutes" style="position: absolute; font-size: 2.5em; color: black;">0</p>
+    <p id="Minutes" style="position: absolute; font-size: 2.5em; color: black;">30</p>
         </div>
         <div style="
     display: inline-flex;
@@ -57,7 +57,7 @@
     font-size: .5em;
 " id="time">Seconds</p>
 
-    <p id="Seconds" style="position: absolute; font-size: 2.5em; color: black;">0</p>
+    <p id="Seconds" style="position: absolute; font-size: 2.5em; color: black;">8</p>
         </div>
     </section>
     </section>
@@ -74,7 +74,12 @@
 "><p style="
     text-align: center;
     position: relative;
-">Time Until:</p><input type="text" id="inputfield" style="
+">Time Until:</p>
+<p id="datum" style="
+    text-align: center;
+    position: relative;
+    line-height: 0;
+">Today's date: </p><input type="text" id="inputfield" style="
     text-align: center;
     width: 20vw;
     margin: auto;
@@ -83,9 +88,22 @@
     width: 20vw;
     margin: auto;
 "></div>
-    <div id="bgdiv" style="width: 100vw; height: 100vh; background-image: url(&quot;&quot;); position: absolute; top: 0px; left: 0px; z-index: -3; background-repeat: no-repeat; background-size: cover; background-position: center center; filter: brightness(0.5);"></div>
+    <div id="bgdiv" style="width: 100vw; height: 100vh; background-image: url(&quot;&quot;); position: absolute; top: 0px; left: 0px; z-index: -3; background-repeat: no-repeat; background-size: cover; background-position: center center; filter: brightness(0.5);">
+<div style="
+    width: 100vw;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    animation: hi 1s linear infinite;
+    color: red;
+">
+<p style="font-family: impact;font-size: 10em;">yo'ure mom</p>
+</div>
+</div>
 <script>setInterval( ()=>{var vakantietijd = new Date(document.getElementById('inputfield').value).getTime();
     var nu = new Date().getTime();
+    document.getElementById('datum').innerText = `Today's date: ${nu}`;
     var  days = Math.floor((vakantietijd - nu)/1000/60/60/24);
     var  hours = Math.floor((vakantietijd - nu)/1000/60/60)%24;
     var  minutes = Math.floor((vakantietijd - nu)/1000/60)%60;
@@ -121,4 +139,9 @@
     }
 }, 1000);
 </script><style>@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
-</style></body></html>
+@keyframes hi{
+    0%{transform: rotateY(0deg); filter: hue-rotate(0deg);}
+    100%{transform: rotateY(360deg); filter: hue-rotate(360deg);}
+}
+</style>
+</body></html>
