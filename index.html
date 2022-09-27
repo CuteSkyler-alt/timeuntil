@@ -87,7 +87,8 @@
     text-align: center;
     width: 20vw;
     margin: auto;
-"></div>
+" onchange="
+    document.getElementById('bgdiv').style.backgroundImage = `url(${document.getElementById('bg').value})`"></div>
     <div id="bgdiv" style="width: 100vw; height: 100vh; background-image: url(&quot;&quot;); position: absolute; top: 0px; left: 0px; z-index: -3; background-repeat: no-repeat; background-size: cover; background-position: center center; filter: brightness(0.5);">
 </div>
 <script>setInterval( ()=>{var vakantietijd = new Date(document.getElementById('inputfield').value).getTime();
@@ -101,7 +102,6 @@
     if(hours >=0){document.getElementById('Hours').innerHTML = hours;}
     if(minutes >=0){document.getElementById('Minutes').innerHTML = minutes;}
     if(seconds >=0){document.getElementById('Seconds').innerHTML = seconds;}
-    document.getElementById('bgdiv').style.backgroundImage = `url(${document.getElementById('bg').value})`;
     if(document.getElementById('Days').innerHTML === "0"){
     document.getElementById('Days').style.color = 'red';
     }
@@ -127,7 +127,20 @@
     document.getElementById('Seconds').style.color = 'black';
     }
     document.getElementById('datum').innerText = `Today's date: ${newt.getMonth()+1+"-"+newt.getDate()+"-"+newt.getFullYear()}`;
+    if(document.querySelector('#Hours').innerHTML === "0" && document.querySelector('#Minutes').innerHTML === "0" && document.querySelector('#Days').innerHTML === "0" && document.querySelector('#Seconds').innerHTML === "0"){
+        showConfetti();
+    };
 }, 1000);
+
+function showConfetti(){
+    document.querySelector('#bgdiv').style.opacity = '1';
+    document.querySelector('#bgdiv').style.backgroundImage = 'url("https://raw.githubusercontent.com/fufu70/react-confetti-canvas/master/assets/canvas.gif")';
+    setTimeout(()=>{
+        document.querySelector('#bgdiv').style.opacity = '0';
+        document.getElementById('bgdiv').style.backgroundImage = `url(${document.getElementById('bg').value})`;
+    },5000);
+    return;
+};
 </script><style>@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
 </style>
 </body></html>
