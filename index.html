@@ -127,20 +127,8 @@
     document.getElementById('Seconds').style.color = 'black';
     }
     document.getElementById('datum').innerText = `Today's date: ${newt.getMonth()+1+"-"+newt.getDate()+"-"+newt.getFullYear()}`;
-    if(document.querySelector('#Hours').innerHTML === "0" && document.querySelector('#Minutes').innerHTML === "0" && document.querySelector('#Days').innerHTML === "0" && document.querySelector('#Seconds').innerHTML === "0"){
-        showConfetti();
-    };
 }, 1000);
 
-function showConfetti(){
-    document.querySelector('#bgdiv').style.opacity = '1';
-    document.querySelector('#bgdiv').style.backgroundImage = 'url("https://raw.githubusercontent.com/fufu70/react-confetti-canvas/master/assets/canvas.gif")';
-    setTimeout(()=>{
-        document.querySelector('#bgdiv').style.opacity = '0';
-        document.getElementById('bgdiv').style.backgroundImage = `url(${document.getElementById('bg').value})`;
-    },5000);
-    return;
-};
 </script><style>@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
 </style>
 </body></html>
