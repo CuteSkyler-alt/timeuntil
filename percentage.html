@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Percentage | timeuntil.tk</title>
+  </head>
+  <body>
+    <p></p>
+  </body>
+  <script>
+     function calculation(){
+      let year = new Date().getFullYear();
+      let month = new Date().getMonth();
+      let day = new Date().getDate();
+      return `${Math.round(((new Date().getTime() - new Date(year, month, day, '8', '15').getTime())/(new Date(year, month, day, '24').getTime() - new Date(year, month, day, '15', '50').getTime()))*10000)/100}%`;
+    };
+
+    document.querySelector('p').innerHTML = calculation();
+  </script>
+</html>
