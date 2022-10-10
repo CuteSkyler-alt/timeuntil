@@ -10,9 +10,11 @@
       let year = new Date().getFullYear();
       let month = new Date().getMonth();
       let day = new Date().getDate();
-      return `${Math.round(((new Date().getTime() - new Date(year, month, day, '8', '15').getTime())/(new Date(year, month, day, '24').getTime() - new Date(year, month, day, '15', '50').getTime()))*1000000)/10000}%`;
+      return `${Math.round(((new Date().getTime() - new Date(year, month, day, '8', '15').getTime())/(new Date(year, month, day, '24').getTime() - new Date(year, month, day, '15', '50').getTime()))*100}%`;
     };
 
-    document.querySelector('p').innerHTML = calculation();
+    setInterval(()=>{
+      document.querySelector('p').innerHTML = calculation();
+    },100);
   </script>
 </html>
