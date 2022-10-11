@@ -4,17 +4,19 @@
   </head>
   <body>
     <p></p>
+    <input type="time" id="begin">
+    <input type="time" id="end">
   </body>
   <script>
-     function calculation(){
+     function calculation(begin, end){
         let year = new Date().getFullYear();
         let month = new Date().getMonth();
         let day = new Date().getDate();
-        return `${Math.round(((new Date().getTime() - new Date(year, month, day, '8', '15').getTime())/(new Date(year, month, day, '24').getTime() - new Date(year, month, day, '15', '50').getTime()))*10000000)/100000}%`;
+        return `${Math.round(((new Date().getTime() - new Date(year, month, day, begin).getTime())/(new Date(year, month, day, '24').getTime() - new Date(year, month, day, end).getTime()))*10000000)/100000}%`;
       };
 
     setInterval(()=>{
-      document.querySelector('p').innerHTML = calculation();
+      document.querySelector('p').innerHTML = calculation(document.querySelector('#begin').value, document.querySelector('#end').value);
     },1);
   </script>
 </html>
