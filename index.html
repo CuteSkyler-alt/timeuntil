@@ -1,134 +1,110 @@
-<html style="
-    font-family: 'Roboto Mono', monospace;
-"><head><title>time.soepkip.party</title></head><body style="">
-    <section>
-    <div><p style="
-    display: flex;
-    justify-content: center;
-    font-size: 5em;
-    font-weight: 800;
-">time.soepkip.party</p></div>
-    <section style="
-    font-size: 4rem;
-    display: flex;
-    margin-top: -10vh;
-    padding-inline: 20vh;
+<html><head></head><body style="
+    margin: 0;
+    padding: 0;
 ">
-        <div style="
-    display: inline-flex;
-    flex: auto;
-    justify-content: center;
-">
-            <p style="
-    font-weight: 800;
-    font-size: .5em;
-">Days</p>
-    <p id="Days" style="position: absolute; font-size: 2.5em; color: red;">0</p>
-        </div>
-        <div style="
-    display: inline-flex;
-    flex: auto;
-    justify-content: center;
-">
-            <p style="
-    font-weight: 800;
-    font-size: .5em;
-">Hours</p>
-    <p id="Hours" style="position: absolute; font-size: 2.5em; color: red;">0</p>
-        </div>
-        <div style="
-    display: inline-flex;
-    flex: auto;
-    justify-content: center;
-">
-            <p style="
-    font-weight: 800;
-    font-size: .5em;
-">Minutes</p>
-    <p id="Minutes" style="position: absolute; font-size: 2.5em; color: red;">0</p>
-        </div>
-        <div style="
-    display: inline-flex;
-    justify-content: center;
-    flex: auto;
-">
-            <p style="
-    font-weight: 800;
-    font-size: .5em;
-" id="time">Seconds</p>
-
-    <p id="Seconds" style="position: absolute; font-size: 2.5em; color: red;">0</p>
-        </div>
-    </section>
-    </section>
-    <div style="
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    flex: auto;
-    bottom: 0;
-    left: 0;
+    <header style="
     width: 100vw;
-    padding: 5vw 0;
+    display: flex;
+    justify-content: center;
+"><h1 style="
+    font-size: 4rem;
+">time.soepkip.party</h1></header>
+    <div style="
+    display: grid;
+    width: 80vw;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding-inline: 10vw;
+">
+    <div class="unit" style="
+    display: flex;
     flex-direction: column;
-"><p id="datum" style="
-    text-align: center;
-    position: relative;
-    line-height: 0;
-">Today's date: </p><p style="
-    text-align: center;
-    position: relative;
-">Time Until:</p>
-<input type="text" id="inputfield" style="
-    text-align: center;
-    width: 20vw;
-    margin: auto;
-"><input type="text" id="bg" style="
-    text-align: center;
-    width: 20vw;
-    margin: auto;
-" onchange="
-    document.getElementById('bgdiv').style.backgroundImage = `url(${document.getElementById('bg').value})`"></div>
-    <div id="bgdiv" style="width: 100vw; height: 100vh; background-image: url(&quot;&quot;); position: absolute; top: 0px; left: 0px; z-index: -3; background-repeat: no-repeat; background-size: cover; background-position: center center; filter: brightness(0.5);">
-</div>
-<script>setInterval( ()=>{var vakantietijd = new Date(document.getElementById('inputfield').value).getTime();
+    align-items: center;
+    font-size: 8rem;
+"><label style="
+    font-size: 2rem;
+">Days</label><p id="days">0</p></div>
+<div class="unit" style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 8rem;
+"><label style="
+    font-size: 2rem;
+">Hours</label><p id="hours">0</p></div><div class="unit" style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 8rem;
+"><label style="
+    font-size: 2rem;
+">Minutes</label><p id="minutes">0</p></div><div class="unit" style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 8rem;
+"><label style="
+    font-size: 2rem;
+">Seconds</label><p id="seconds">0</p></div>
+<div style="
+    grid-column: span 4;
+    display: flex;
+    justify-content: center;
+"><input type="text" style="
+    width: 25%;
+"></div></div>
+    <footer style="
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    inset-inline: auto;
+    width: 100vw;
+">
+<h3>Current Date:</h3>
+
+</footer><style>
+  @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+*{font-family: 'Major Mono Display', monospace;}
+</style>
+<script>
+setInterval( ()=>{var vakantietijd = new Date(document.querySelector('input').value).getTime();
     var nu = new Date().getTime();
     var newt = new Date();
     var  days = Math.floor((vakantietijd - nu)/1000/60/60/24);
     var  hours = Math.floor((vakantietijd - nu)/1000/60/60)%24;
     var  minutes = Math.floor((vakantietijd - nu)/1000/60)%60;
     var  seconds = Math.floor((vakantietijd - nu)/1000)%60;
-    if(days >= 0){document.getElementById('Days').innerHTML = days;}
-    if(hours >=0){document.getElementById('Hours').innerHTML = hours;}
-    if(minutes >=0){document.getElementById('Minutes').innerHTML = minutes;}
-    if(seconds >=0){document.getElementById('Seconds').innerHTML = seconds;}
-    if(document.getElementById('Days').innerHTML === "0"){
-    document.getElementById('Days').style.color = 'red';
+    if(days >= 0){document.getElementById('days').innerHTML = days;}
+    if(hours >=0){document.getElementById('hours').innerHTML = hours;}
+    if(minutes >=0){document.getElementById('minutes').innerHTML = minutes;}
+    if(seconds >=0){document.getElementById('seconds').innerHTML = seconds;}
+    if(document.getElementById('days').innerHTML === "0"){
+    document.getElementById('days').style.color = 'red';
     }
-    if(document.getElementById('Hours').innerHTML === "0"){
-    document.getElementById('Hours').style.color = 'red';
+    if(document.getElementById('hours').innerHTML === "0"){
+    document.getElementById('hours').style.color = 'red';
     }
-    if(document.getElementById('Minutes').innerHTML === "0"){
-    document.getElementById('Minutes').style.color = 'red';
+    if(document.getElementById('minutes').innerHTML === "0"){
+    document.getElementById('minutes').style.color = 'red';
     }
-    if(document.getElementById('Seconds').innerHTML === "0"){
-    document.getElementById('Seconds').style.color = 'red';
+    if(document.getElementById('seconds').innerHTML === "0"){
+    document.getElementById('seconds').style.color = 'red';
     }
-    if(document.getElementById('Days').innerHTML !== "0"){
-    document.getElementById('Days').style.color = 'black';
+    if(document.getElementById('days').innerHTML !== "0"){
+    document.getElementById('days').style.color = 'black';
     }
-    if(document.getElementById('Hours').innerHTML !== "0"){
-    document.getElementById('Hours').style.color = 'black';
+    if(document.getElementById('hours').innerHTML !== "0"){
+    document.getElementById('hours').style.color = 'black';
     }
-    if(document.getElementById('Minutes').innerHTML !== "0"){
-    document.getElementById('Minutes').style.color = 'black';
+    if(document.getElementById('minutes').innerHTML !== "0"){
+    document.getElementById('minutes').style.color = 'black';
     }
-    if(document.getElementById('Seconds').innerHTML !== "0"){
-    document.getElementById('Seconds').style.color = 'black';
+    if(document.getElementById('seconds').innerHTML !== "0"){
+    document.getElementById('seconds').style.color = 'black';
     }
-    document.getElementById('datum').innerText = `Today's date: ${newt.getMonth()+1+"-"+newt.getDate()+"-"+newt.getFullYear()}`;
+    document.querySelector('h3').innerHTML = `Today's date: ${newt.getMonth()+1+"-"+newt.getDate()+"-"+newt.getFullYear()}`;
 }, 1000);
 
-</script><style>@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
-</style>
+</script>
 </body></html>
